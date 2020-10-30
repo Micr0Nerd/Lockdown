@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Room/PlatformEdge.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Haters/NavPoints.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Haters/Security_guard.tscn" type="PackedScene" id=3]
+
+[node name="Sequrity_set" type="Node2D"]
+
+[node name="Security" parent="." instance=ExtResource( 3 )]
+
+[node name="NavPoints" parent="." instance=ExtResource( 2 )]
+
+[node name="LeftPoint" parent="NavPoints" index="0"]
+position = Vector2( -94, 1 )
+
+[node name="PlatformEdge" parent="." instance=ExtResource( 1 )]
+position = Vector2( -189, 3 )
+
+[node name="PlatformEdge2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 210, -1 )
+
+[editable path="NavPoints"]

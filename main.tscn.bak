@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Room/Room.tscn" type="PackedScene" id=2]
+[ext_resource path="res://main.gd" type="Script" id=3]
+[ext_resource path="res://Transition/Transition.tscn" type="PackedScene" id=4]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Camera_trembling"
+length = 0.2
+loop = true
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 2
+tracks/0/loop_wrap = false
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 0.450625, 0.450625, 0.450625 ),
+"update": 0,
+"values": [ Vector2( -20, 0 ), Vector2( 20, 0 ), Vector2( -20, 0 ) ]
+}
+
+[node name="main" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 390.96, 66.9066 )
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2( -3.85648, 5.17476 )
+offset = Vector2( -20, 0 )
+current = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Player/Camera2D"]
+anims/Camera_trembling = SubResource( 1 )
+
+[node name="Transition" parent="Player/Camera2D" instance=ExtResource( 4 )]
+
+[node name="Room" parent="." instance=ExtResource( 2 )]
+position = Vector2( 3.36365, 13.4543 )

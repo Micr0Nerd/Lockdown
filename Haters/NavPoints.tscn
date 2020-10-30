@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="CapsuleShape2D" id=1]
+
+[node name="NavPoints" type="Node2D"]
+
+[node name="LeftPoint" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftPoint"]
+shape = SubResource( 1 )
+
+[node name="RightPoint" type="Area2D" parent="."]
+position = Vector2( 89, -1 )
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightPoint"]
+shape = SubResource( 1 )
